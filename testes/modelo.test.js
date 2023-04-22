@@ -25,8 +25,8 @@ test('Testando cadastro de três perguntas', () => {
 });
 
 test('Testando cadastrar resposta', () => {
-  modelo.cadastrar_resposta(2, 'resposta teste');
-  const respostas = modelo.get_respostas(2); 
+  modelo.cadastrar_resposta(1, 'resposta teste');
+  const respostas = modelo.get_respostas(1); 
   expect(respostas.length).toBe(1);
 });
 
@@ -36,3 +36,10 @@ test('Testando get pergunta', () => {
   const pergunta = modelo.get_pergunta(perguntas[0].id_pergunta)
   expect(pergunta.texto).toBe('1 + 1 = ?');
 });
+
+test('Testando get_num_respostas', () => {
+  modelo.cadastrar_resposta(1, 'resposta teste');
+  const respostas = modelo.get_num_respostas(1); 
+  expect(respostas).toBe(1);
+});
+  
